@@ -23,11 +23,12 @@ class Blockchain (object):
         # Create genesis block
         self.new_block (previous_hash = 1, proof = 100)
 
-    def register_node (self, address):
+    def register_node (self, address: str) -> None:
         parsed_url = urlparse (address)
         self.nodes.add(parsed_url.netloc)
 
-    def new_block(self, proof, previous_hash = None):
+    def new_block(self, proofi: int, previous_hash Optional[str]) -> Dict [str,
+                                                                           Any]:
         """
         param: proof <int> the proof given by the Proof of Work alg
                previous_hash <str> (Optional) Hash of previous block
